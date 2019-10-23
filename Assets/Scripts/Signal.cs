@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Signal : MonoBehaviour
 {
-    [SerializeField]
-    public List<Receiver> receivers;
-
-
+    public EventHandler Emit;
 }

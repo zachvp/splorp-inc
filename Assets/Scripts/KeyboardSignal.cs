@@ -5,14 +5,17 @@ public class KeyboardSignal : Signal
     [SerializeField]
     public KeyCode key;
 
+    [SerializeField]
+    public ControlState state;
+
     public void Update()
     {
-        if (Input.GetKeyDown(key))
+        // todo: cleanup
+        if (state == ControlState.PRESSED && Input.GetKeyDown(key) ||
+            state == ControlState.HELD && Input.GetKey(key) ||
+            state == ControlState.RELEASED && Input.GetKeyUp(key))
         {
-            foreach (Receiver receiver in receivers)
-            {
-                receiver.Fire();
-            }
+            Events.Raise(Emit);
         }
     }
 }

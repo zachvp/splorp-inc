@@ -120,6 +120,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &342117511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 342117512}
+  m_Layer: 0
+  m_Name: KeyboardControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342117512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342117511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7354128, y: -0.22039342, z: -0.022554336}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +242,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642917551}
-  - component: {fileID: 642917552}
   m_Layer: 0
   m_Name: InputEntity
   m_TagString: Untagged
@@ -234,22 +263,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &642917552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642917550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb2a1003146b24c14b378adc135d3e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  receivers:
-  - {fileID: 1938287577}
-  - {fileID: 825940891}
-  key: 13
 --- !u!1 &825940888
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +275,8 @@ GameObject:
   - component: {fileID: 825940889}
   - component: {fileID: 825940891}
   - component: {fileID: 825940892}
+  - component: {fileID: 825940893}
+  - component: {fileID: 825940894}
   m_Layer: 0
   m_Name: PhysicsEntity
   m_TagString: Untagged
@@ -344,7 +359,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638582131d644b12908e5ef9c4418bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 32, y: 0}
+  activate: {fileID: 825940893}
+  deactivate: {fileID: 825940894}
+  velocity: {x: 16, y: 0}
+  body: {fileID: 825940892}
 --- !u!50 &825940892
 Rigidbody2D:
   serializedVersion: 4
@@ -366,6 +384,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &825940893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825940888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2a1003146b24c14b378adc135d3e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 275
+  state: 2
+--- !u!114 &825940894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825940888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2a1003146b24c14b378adc135d3e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 275
+  state: 3
 --- !u!1 &1938287576
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +421,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938287578}
-  - component: {fileID: 1938287577}
   m_Layer: 0
   m_Name: OutputEntity
   m_TagString: Untagged
@@ -383,18 +428,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1938287577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938287576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 268510a6e3091412dab471a3b8bccb81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1938287578
 Transform:
   m_ObjectHideFlags: 0

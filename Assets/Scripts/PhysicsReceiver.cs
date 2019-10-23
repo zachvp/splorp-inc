@@ -1,24 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PhysicsReceiver : Receiver
 {
     [SerializeField]
-    public Vector2 velocity;
+    public Signal activate;
 
-    private Rigidbody2D body;
+    [SerializeField]
+    public Signal deactivate;
 
     public void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        activate.Emit += Activate;
+        deactivate.Emit += Deactivate;
     }
 
-    public override void Fire()
+    public void Activate()
     {
-        base.Fire();
+        Debug.LogFormat("{0}: activate", name);
 
         body.velocity = velocity;
+        // todo: force child class to adopt
     }
+
+    public void Deactivate()
+    {
+        Debug.LogFormat("{0}: deactivate", name);
+
+        body.velocity = Vector2.zero;
+    }
+
+    [SerializeField]
+    public Vector2 velocity;
+
+    [SerializeField]
+    public Rigidbody2D body;
 }
