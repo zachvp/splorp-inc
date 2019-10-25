@@ -5,3 +5,8 @@
     HELD,
     RELEASED
 }
+
+public enum PlayerControlAction
+{
+    Action1
+}
