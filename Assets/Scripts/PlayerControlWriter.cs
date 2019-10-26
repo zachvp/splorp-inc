@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using InControl;
 
+// todo: rename to GamepadControlWriter?
 public class PlayerControlWriter : MonoBehaviour
 {
     [SerializeField]
@@ -10,6 +11,15 @@ public class PlayerControlWriter : MonoBehaviour
     {
         var gamepad = InputManager.ActiveDevice;
 
-        data.action1 = gamepad.Action1.IsPressed;
+        if (gamepad.Action1.WasPressed)
+        {
+            Debug.Log("action 1 pressed");
+            data.control1.state = ControlState.PRESSED;
+        }
+    }
+
+    public void LateUpdate()
+    {
+        data.Clear();
     }
 }

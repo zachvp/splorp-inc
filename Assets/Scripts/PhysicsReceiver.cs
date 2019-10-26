@@ -7,12 +7,14 @@ public class PhysicsReceiver : Receiver
     public Signal activate;
 
     [SerializeField]
-    public Signal deactivate;
+    public Vector2 velocity;
+
+    [SerializeField]
+    public Rigidbody2D body;
 
     public void Awake()
     {
         activate.Emit += Activate;
-        deactivate.Emit += Deactivate;
     }
 
     public void Activate()
@@ -22,17 +24,4 @@ public class PhysicsReceiver : Receiver
         body.velocity = velocity;
         // todo: force child class to adopt
     }
-
-    public void Deactivate()
-    {
-        Debug.LogFormat("{0}: deactivate", name);
-
-        body.velocity = Vector2.zero;
-    }
-
-    [SerializeField]
-    public Vector2 velocity;
-
-    [SerializeField]
-    public Rigidbody2D body;
 }
