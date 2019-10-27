@@ -400,6 +400,8 @@ GameObject:
   - component: {fileID: 825940898}
   - component: {fileID: 825940899}
   - component: {fileID: 825940900}
+  - component: {fileID: 825940894}
+  - component: {fileID: 825940893}
   m_Layer: 9
   m_Name: PhysicsEntity
   m_TagString: Untagged
@@ -507,6 +509,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &825940893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825940888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5096cc74cae644595b32b6f3afd242f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 358ced4419b894d12b246e871c3f64d2, type: 2}
+  action: 0
+  state: 1
+--- !u!114 &825940894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825940888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b019a17df4d364545917a1f085753fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lhs: {fileID: 825940893}
+  rhs: {fileID: 825940899}
+  logic: 0
 --- !u!114 &825940897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6638582131d644b12908e5ef9c4418bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activate: {fileID: 825940899}
-  velocity: {x: 0, y: 32}
+  activate: {fileID: 825940894}
+  velocity: {x: 0, y: 12}
   body: {fileID: 825940892}

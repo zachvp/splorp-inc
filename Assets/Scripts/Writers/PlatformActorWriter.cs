@@ -12,22 +12,25 @@ public class PlatformActorWriter : MonoBehaviour
     {
         actorData.up = transform.up;
 
-        if (collisionData.collision != null && collisionData.collision.contactCount > 0)
+        foreach(Collision2D collision in collisionData.collisions)
         {
-            var points = new ContactPoint2D[collisionData.collision.contactCount];
-            
-            // store collision contacts in array
-            collisionData.collision.collider.GetContacts(points);
-
-            foreach (ContactPoint2D point in points)
+            if (collision.contactCount > 0)
             {
-                var dot = Vector2.Dot(point.normal, actorData.up);
+                var points = new ContactPoint2D[collision.contactCount];
+                
+                // store collision contacts in array
+                collision.collider.GetContacts(points);
 
-                // check that this contact is in opposite direction as other contact
-                if (dot < -0.95f)
+                foreach (ContactPoint2D point in points)
                 {
-                    actorData.state = PlatformActorState.GROUNDED;
-                    break;
+                    var dot = Vector2.Dot(point.normal, actorData.up);
+
+                    // check that this contact is in opposite direction as other contact
+                    if (dot < -0.95f)
+                    {
+                        actorData.state = PlatformActorState.GROUNDED;
+                        break;
+                    }
                 }
             }
         }

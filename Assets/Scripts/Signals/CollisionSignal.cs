@@ -14,10 +14,13 @@ public class CollisionSignal : Signal
 
     public void HandleOnChange()
     {
-        if (data.collision != null && data.collision.otherCollider.IsTouchingLayers(layer))
+        foreach (Collision2D c in data.collisions)
         {
-            Debug.LogFormat("emit collision signal");
-            Events.Raise(Emit);
+            if (c.otherCollider.IsTouchingLayers(layer))
+            {
+                Debug.LogFormat("emit collision signal");
+                Events.Raise(Emit);
+            }
         }
     }
 }

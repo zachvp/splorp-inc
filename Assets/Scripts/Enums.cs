@@ -18,3 +18,10 @@ public enum PlatformActorState
     NONE = 0,
     GROUNDED = 1
 }
+
+public enum Logic
+{
+    AND,
+    OR,
+    XOR
+}

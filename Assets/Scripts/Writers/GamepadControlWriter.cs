@@ -16,6 +16,8 @@ public class GamepadControlWriter : MonoBehaviour
             Debug.Log("action 1 pressed");
             data.control1.state = ControlState.PRESSED;
         }
+
+        Events.Raise(data.OnChange);
     }
 
     public void LateUpdate()
