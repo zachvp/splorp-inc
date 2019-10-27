@@ -9,7 +9,12 @@ public class PlayerControlSignal : Signal
 
     public ControlState state;
 
-    public void Update()
+    public void Awake()
+    {
+        data.OnChange += HandleOnChange;
+    }
+
+    public void HandleOnChange()
     {
         if (data.control1.state == state && data.control1.action == action)
         {

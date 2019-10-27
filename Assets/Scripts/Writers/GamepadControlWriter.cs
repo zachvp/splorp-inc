@@ -2,7 +2,7 @@
 using InControl;
 
 // todo: rename to GamepadControlWriter?
-public class PlayerControlWriter : MonoBehaviour
+public class GamepadControlWriter : MonoBehaviour
 {
     [SerializeField]
     public PlayerControlData data;

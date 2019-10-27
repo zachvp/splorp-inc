@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd4c434d6d4e842989b3fb299eb00d17, type: 3}
-  m_Name: PlayerControlData
+  m_Script: {fileID: 11500000, guid: c99143db9045347fba92bcb87a4bd01a, type: 3}
+  m_Name: CollisionData
   m_EditorClassIdentifier: 
-  action1: 0

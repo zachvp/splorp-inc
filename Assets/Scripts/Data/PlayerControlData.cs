@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerControlData", menuName = "Data/PlayerControlData", order = 1)]
-public class PlayerControlData : ScriptableObject
+[CreateAssetMenu(fileName = "PlayerControlData", menuName = "Data/PlayerControlData")]
+public class PlayerControlData : Data
 {
     public DigitalControl control1;
 
